@@ -1,0 +1,17 @@
+# ─────────────────────────────────────────
+#  GitLab Pages — Schedules
+#  Este archivo publica tu index.html como
+#  página web gratuita en GitLab Pages.
+# ─────────────────────────────────────────
+
+pages:
+  stage: deploy
+  script:
+    - mkdir -p public
+    - cp index.html public/
+    - cp "Schedules Pycharm.xlsx" public/ 2>/dev/null || true
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
