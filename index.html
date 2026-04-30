@@ -19,11 +19,11 @@ h1{font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:80
 .airtable-btn{display:inline-flex;align-items:center;gap:.5rem;font-family:'DM Mono',monospace;font-size:.75rem;letter-spacing:.05em;padding:.5rem 1.2rem;border-radius:6px;background:linear-gradient(135deg,#7B2FBE,#1565C0);color:#fff;text-decoration:none;transition:opacity .2s,transform .2s;}
 .airtable-btn:hover{opacity:.85;transform:translateY(-1px);}
 .tabs{display:flex;border-bottom:1px solid var(--border);padding:0 2rem;background:var(--surface);}
-.tab{font-family:'DM Mono',monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding:1rem 1.5rem;border:none;background:transparent;color:var(--muted);cursor:pointer;position:relative;transition:color .2s;}
+.tab{font-family:'DM Mono',monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding:1rem 1.5rem;border:none;background:transparent;color:#fff;cursor:pointer;position:relative;transition:color .2s;opacity:.45;}
 .tab::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:transparent;transition:background .2s;}
-.tab[data-site="Flexo"].active{color:#D8B4FE}.tab[data-site="Flexo"].active::after{background:#7B2FBE}
-.tab[data-site="Concentra"].active{color:#93C5FD}.tab[data-site="Concentra"].active::after{background:#1565C0}
-.tab[data-site="Puebla"].active{color:#86EFAC}.tab[data-site="Puebla"].active::after{background:#1B5E20}
+.tab[data-site="Flexo"].active{color:#D8B4FE;opacity:1}.tab[data-site="Flexo"].active::after{background:#7B2FBE}
+.tab[data-site="Concentra"].active{color:#93C5FD;opacity:1}.tab[data-site="Concentra"].active::after{background:#1565C0}
+.tab[data-site="Puebla"].active{color:#86EFAC;opacity:1}.tab[data-site="Puebla"].active::after{background:#1B5E20}
 main{padding:2rem;background:var(--bg);}
 .panel{display:none}.panel.active{display:block;animation:fadeIn .3s ease}
 @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
@@ -54,8 +54,7 @@ td{padding:.4rem;text-align:center;font-size:.75rem;border:1px solid rgba(0,0,0,
 .site-puebla .row-g0 td.cell-break,.site-puebla .row-g1 td.cell-break,.site-puebla .row-g2 td.cell-break{background:#0a3d12;color:#fff;}
 .site-puebla .row-g0 td.cell-lunch,.site-puebla .row-g1 td.cell-lunch,.site-puebla .row-g2 td.cell-lunch{background:#1B5E20;color:#fff;}
 .cell-break,.cell-lunch{font-family:'DM Mono',monospace;font-size:.65rem;font-weight:600;}
-.legend{display:flex;gap:1.5rem;flex-wrap:wrap;padding:1rem 2rem;border-top:1px solid var(--border);background:var(--surface);font-family:'DM Mono',monospace;font-size:.68rem;color:var(--muted);}
-.leg-item{display:flex;align-items:center;gap:.4rem}.leg-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+.sat-badge span{color:#4ADE80;font-weight:500}
 </style>
 </head>
 <body>
@@ -64,7 +63,7 @@ td{padding:.4rem;text-align:center;font-size:.75rem;border:1px solid rgba(0,0,0,
   <h1>Schedules</h1>
   <div class="header-meta">
     <span class="week-badge">Semana: <span>Week 19</span></span>
-    <span class="week-badge">9 de Mayo del 4 al 9 de Mayo</span>
+    <span class="week-badge">Cobertura Sábado: <span style="color:#4ADE80;font-weight:500">9 de Mayo del 4 al 9 de Mayo</span></span>
   </div>
 </header>
 <div class="topbar">
@@ -83,12 +82,8 @@ td{padding:.4rem;text-align:center;font-size:.75rem;border:1px solid rgba(0,0,0,
   <div class="panel" id="panel-Concentra"></div>
   <div class="panel" id="panel-Puebla"></div>
 </main>
-<div class="legend">
-  <span class="leg-item"><span class="leg-dot" style="background:#4A0072"></span>Break (Flexo)</span>
-  <span class="leg-item"><span class="leg-dot" style="background:#0D3A7A"></span>Break (Concentra)</span>
-  <span class="leg-item"><span class="leg-dot" style="background:#0a3d12"></span>Break (Puebla)</span>
-  <span class="leg-item"><span class="leg-dot" style="background:#1B5E20"></span>Lunch</span>
-  <span class="leg-item"><span class="leg-dot" style="background:transparent;border:1px solid #555"></span>Working</span>
+<div style="padding:.8rem 2rem;border-top:1px solid var(--border);background:var(--surface);font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);">
+  Cualquier duda o cambio consulta a tu coordinador.
 </div>
 <script>
 const HORAS=["9:00","10:00","11:00","11:15","11:30","11:45","12:00","13:00","14:00","15:00","16:00","16:15","16:30","17:00","17:45","18:00","19:00"];
