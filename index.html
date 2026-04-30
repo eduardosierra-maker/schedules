@@ -27,26 +27,31 @@ h1{font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:80
 main{padding:2rem;background:var(--bg);}
 .panel{display:none}.panel.active{display:block;animation:fadeIn .3s ease}
 @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.cob-bar{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;padding:.8rem 1rem;border-radius:10px;background:var(--card);margin-bottom:1.2rem;border:1px solid var(--border);}
+.cob-label{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);white-space:nowrap;}
+.cob-tag{font-family:'DM Mono',monospace;font-size:.7rem;padding:.25rem .75rem;border-radius:999px;}
 .schedule-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--border);box-shadow:0 4px 24px rgba(0,0,0,.25)}
 table{border-collapse:collapse;min-width:900px;width:100%}
 thead tr th{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;padding:.6rem .4rem;text-align:center;border:1px solid var(--border);position:sticky;top:0;z-index:2;white-space:nowrap;}
 .th-name{text-align:left;padding-left:1.2rem;min-width:190px;font-family:'Syne',sans-serif;font-size:.8rem;}
-.group-header td{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;padding:.4rem 1.2rem;text-align:left;border-top:1px solid var(--border);}
+.group-header td{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;padding:.4rem 1.2rem;text-align:left;border-top:1px solid var(--border);color:#fff;}
 tbody tr{transition:filter .15s}tbody tr:hover td{filter:brightness(1.08)}
-td{padding:.4rem;text-align:center;font-size:.75rem;border:1px solid rgba(0,0,0,.08);height:38px;}
+td{padding:.4rem;text-align:center;font-size:.75rem;border:1px solid rgba(0,0,0,.06);height:38px;}
 .td-name{text-align:left;padding-left:1.2rem;font-family:'DM Sans',sans-serif;font-weight:600;font-size:.87rem;white-space:nowrap;}
-.cell-break{background:#4A0080;color:#000;font-family:'DM Mono',monospace;font-size:.65rem;font-weight:700;border:2px solid #2d004d;}
-.cell-lunch-g{background:#1B5E20;color:#000;font-family:'DM Mono',monospace;font-size:.65rem;font-weight:700;border:2px solid #0a3d12;}
-.cell-lunch-b{background:#0D47A1;color:#000;font-family:'DM Mono',monospace;font-size:.65rem;font-weight:700;border:2px solid #082d6b;}
+.cell-break{color:#fff;font-family:'DM Mono',monospace;font-size:.65rem;font-weight:600;}
+.cell-lunch{background:#1B5E20;color:#fff;font-family:'DM Mono',monospace;font-size:.65rem;font-weight:600;}
 .site-flexo .td-name{color:#3b0764;}
 .site-flexo .row-g0 td{background:#E8D5F5}.site-flexo .row-g1 td{background:#D8BDF0}.site-flexo .row-g2 td{background:#C9A8EA}
-.site-flexo thead tr th{background:#7B2FBE;color:#fff;}.site-flexo .group-header td{background:#9B4DCA;color:#fff;}
+.site-flexo thead tr th{background:#7B2FBE;color:#fff;}.site-flexo .group-header td{background:#9B4DCA;}
+.site-flexo .cell-break{background:#4A0072;}
 .site-concentra .td-name{color:#0a1628;}
 .site-concentra .row-g0 td{background:#BBDEFB}.site-concentra .row-g1 td{background:#90CAF9}.site-concentra .row-g2 td{background:#B3D9F7}
-.site-concentra thead tr th{background:#1565C0;color:#fff;}.site-concentra .group-header td{background:#1976D2;color:#fff;}
+.site-concentra thead tr th{background:#1565C0;color:#fff;}.site-concentra .group-header td{background:#1976D2;}
+.site-concentra .cell-break{background:#0D3A7A;}
 .site-puebla .td-name{color:#0a1f0a;}
 .site-puebla .row-g0 td{background:#C8E6C9}.site-puebla .row-g1 td{background:#A5D6A7}.site-puebla .row-g2 td{background:#B2DFDB}
-.site-puebla thead tr th{background:#1B5E20;color:#000;}.site-puebla .group-header td{background:#2E7D32;color:#fff;}
+.site-puebla thead tr th{background:#1B5E20;color:#fff;}.site-puebla .group-header td{background:#2E7D32;}
+.site-puebla .cell-break{background:#0a3d12;}
 .legend{display:flex;gap:1.5rem;flex-wrap:wrap;padding:1rem 2rem;border-top:1px solid var(--border);background:var(--surface);font-family:'DM Mono',monospace;font-size:.68rem;color:var(--muted);}
 .leg-item{display:flex;align-items:center;gap:.4rem}.leg-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0}
 </style>
@@ -77,9 +82,10 @@ td{padding:.4rem;text-align:center;font-size:.75rem;border:1px solid rgba(0,0,0,
   <div class="panel" id="panel-Puebla"></div>
 </main>
 <div class="legend">
-  <span class="leg-item"><span class="leg-dot" style="background:#6A0DAD"></span>Break</span>
-  <span class="leg-item"><span class="leg-dot" style="background:#1B5E20"></span>Lunch 13:00</span>
-  <span class="leg-item"><span class="leg-dot" style="background:#0D47A1"></span>Lunch 14:00 / 15:00</span>
+  <span class="leg-item"><span class="leg-dot" style="background:#4A0072"></span>Break (Flexo)</span>
+  <span class="leg-item"><span class="leg-dot" style="background:#0D3A7A"></span>Break (Concentra)</span>
+  <span class="leg-item"><span class="leg-dot" style="background:#0a3d12"></span>Break (Puebla)</span>
+  <span class="leg-item"><span class="leg-dot" style="background:#1B5E20"></span>Lunch</span>
   <span class="leg-item"><span class="leg-dot" style="background:transparent;border:1px solid #555"></span>Working</span>
 </div>
 <script>
@@ -99,7 +105,13 @@ document.querySelectorAll('.tab').forEach(tab=>{
 function renderSite(site){
   const {people,cobertura}=SCHEDULE[site];
   const sc='site-'+site.toLowerCase();
-  let html=`<div class="schedule-wrap"><table class="${sc}"><thead><tr><th class="th-name">${site}</th>`;
+  let html='';
+  if(cobertura&&cobertura.length>0){
+    html+=`<div class="cob-bar"><span class="cob-label">Cobertura Sábado</span>`;
+    cobertura.forEach(n=>{html+=`<span class="cob-tag" style="border:1px solid ${COLORS[site]};color:${COLORS[site]};background:${LIGHTS[site]}">${n}</span>`;});
+    html+=`</div>`;
+  }
+  html+=`<div class="schedule-wrap"><table class="${sc}"><thead><tr><th class="th-name">${site}</th>`;
   HORAS.forEach(h=>{html+=`<th>${h}</th>`;});
   html+=`</tr></thead><tbody>`;
   let lastGroup=-1;
@@ -109,17 +121,12 @@ function renderSite(site){
     html+=`<tr class="row-g${group}"><td class="td-name">${name}</td>`;
     HORAS.forEach(h=>{
       if(h===b1||h===b2) html+=`<td class="cell-break">Break</td>`;
-      else if(h===lu)    html+=`<td class="${group===0?'cell-lunch-g':'cell-lunch-b'}">Lunch</td>`;
+      else if(h===lu)    html+=`<td class="cell-lunch">Lunch</td>`;
       else               html+=`<td></td>`;
     });
     html+=`</tr>`;
   });
   html+=`</tbody></table></div>`;
-  if(cobertura&&cobertura.length>0){
-    html+=`<div style="margin-top:2rem;padding:1.5rem;border:1px solid var(--border);border-radius:12px;background:var(--card)"><p style="font-family:'Syne',sans-serif;margin-bottom:1rem;opacity:.7">Cobertura Sábado</p><div style="display:flex;flex-wrap:wrap;gap:.5rem">`;
-    cobertura.forEach(n=>{html+=`<span style="font-family:'DM Mono',monospace;font-size:.72rem;padding:.3rem .8rem;border-radius:999px;border:1px solid ${COLORS[site]};color:${COLORS[site]};background:${LIGHTS[site]}">${n}</span>`;});
-    html+=`</div></div>`;
-  }
   document.getElementById('panel-'+site).innerHTML=html;
 }
 ['Flexo','Concentra','Puebla'].forEach(renderSite);
