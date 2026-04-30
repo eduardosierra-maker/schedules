@@ -6,23 +6,28 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--flexo:#9333EA;--conc:#2563EB;--puebla:#16A34A;--bg:#1C1C27;--surface:#25253A;--card:#2E2E45;--border:#3A3A55;--text:#E2E2F0;--muted:#8888AA;}
+:root{
+  --flexo:#2563EB;
+  --conc:#9333EA;
+  --puebla:#16A34A;
+  --bg:#1C1C27;--surface:#25253A;--card:#2E2E45;--border:#3A3A55;--text:#E2E2F0;--muted:#8888AA;
+}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;min-height:100vh;overflow-x:hidden;}
 header{position:relative;padding:3rem 2rem 2rem;border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:.5rem;}
 header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--flexo),var(--conc),var(--puebla),transparent);}
 .eyebrow{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;}
-h1{font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:800;line-height:1;background:linear-gradient(135deg,#C084FC,#60A5FA,#4ADE80);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+h1{font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:800;line-height:1;background:linear-gradient(135deg,#60A5FA,#C084FC,#4ADE80);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .header-meta{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:.5rem;}
 .week-badge{font-family:'DM Mono',monospace;font-size:.8rem;padding:.35rem .9rem;background:var(--card);border:1px solid var(--border);border-radius:999px;color:var(--text);}
-.week-badge span{color:#C084FC;font-weight:500}
+.week-badge span{color:#93C5FD;font-weight:500}
 .topbar{display:flex;justify-content:flex-end;padding:.8rem 2rem;background:var(--surface);border-bottom:1px solid var(--border);}
-.airtable-btn{display:inline-flex;align-items:center;gap:.5rem;font-family:'DM Mono',monospace;font-size:.75rem;letter-spacing:.05em;padding:.5rem 1.2rem;border-radius:6px;background:linear-gradient(135deg,#9333EA,#2563EB);color:#fff;text-decoration:none;transition:opacity .2s,transform .2s;}
+.airtable-btn{display:inline-flex;align-items:center;gap:.5rem;font-family:'DM Mono',monospace;font-size:.75rem;letter-spacing:.05em;padding:.5rem 1.2rem;border-radius:6px;background:linear-gradient(135deg,#2563EB,#9333EA);color:#fff;text-decoration:none;transition:opacity .2s,transform .2s;}
 .airtable-btn:hover{opacity:.85;transform:translateY(-1px);}
 .tabs{display:flex;border-bottom:1px solid var(--border);padding:0 2rem;background:var(--surface);}
 .tab{font-family:'DM Mono',monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding:1rem 1.5rem;border:none;background:transparent;color:var(--muted);cursor:pointer;position:relative;transition:color .2s;}
 .tab::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:transparent;transition:background .2s;}
-.tab[data-site="Flexo"].active{color:#C084FC}.tab[data-site="Flexo"].active::after{background:var(--flexo)}
-.tab[data-site="Concentra"].active{color:#93C5FD}.tab[data-site="Concentra"].active::after{background:var(--conc)}
+.tab[data-site="Flexo"].active{color:#93C5FD}.tab[data-site="Flexo"].active::after{background:var(--flexo)}
+.tab[data-site="Concentra"].active{color:#C084FC}.tab[data-site="Concentra"].active::after{background:var(--conc)}
 .tab[data-site="Puebla"].active{color:#86EFAC}.tab[data-site="Puebla"].active::after{background:var(--puebla)}
 main{padding:2rem;background:var(--bg);}
 .panel{display:none}.panel.active{display:block;animation:fadeIn .3s ease}
@@ -38,12 +43,12 @@ td{padding:.4rem;text-align:center;font-size:.75rem;border:1px solid rgba(255,25
 .cell-break{background:rgba(255,255,255,.1);color:rgba(255,255,255,.65);font-family:'DM Mono',monospace;font-size:.6rem;font-weight:500;}
 .cell-lunch-g{background:#15803D;color:#fff;font-family:'DM Mono',monospace;font-size:.6rem;font-weight:500;}
 .cell-lunch-b{background:#1D4ED8;color:#fff;font-family:'DM Mono',monospace;font-size:.6rem;font-weight:500;}
-.site-flexo .td-name{color:#DDD6FE}
-.site-flexo .row-g0 td{background:#2A1F3D}.site-flexo .row-g1 td{background:#2E2245}.site-flexo .row-g2 td{background:#32254D}
-.site-flexo thead tr th{background:#1E1530;color:#C084FC}.site-flexo .group-header td{background:#3B2A5A;color:#DDD6FE}
-.site-concentra .td-name{color:#BFDBFE}
-.site-concentra .row-g0 td{background:#1A2340}.site-concentra .row-g1 td{background:#1D2748}.site-concentra .row-g2 td{background:#202B50}
-.site-concentra thead tr th{background:#131B32;color:#93C5FD}.site-concentra .group-header td{background:#253460;color:#BFDBFE}
+.site-flexo .td-name{color:#BFDBFE}
+.site-flexo .row-g0 td{background:#1A2340}.site-flexo .row-g1 td{background:#1D2748}.site-flexo .row-g2 td{background:#202B50}
+.site-flexo thead tr th{background:#131B32;color:#93C5FD}.site-flexo .group-header td{background:#253460;color:#BFDBFE}
+.site-concentra .td-name{color:#DDD6FE}
+.site-concentra .row-g0 td{background:#2A1F3D}.site-concentra .row-g1 td{background:#2E2245}.site-concentra .row-g2 td{background:#32254D}
+.site-concentra thead tr th{background:#1E1530;color:#C084FC}.site-concentra .group-header td{background:#3B2A5A;color:#DDD6FE}
 .site-puebla .td-name{color:#BBF7D0}
 .site-puebla .row-g0 td{background:#192B22}.site-puebla .row-g1 td{background:#1C3026}.site-puebla .row-g2 td{background:#1F342A}
 .site-puebla thead tr th{background:#121F19;color:#86EFAC}.site-puebla .group-header td{background:#244033;color:#BBF7D0}
@@ -56,8 +61,8 @@ td{padding:.4rem;text-align:center;font-size:.75rem;border:1px solid rgba(255,25
   <span class="eyebrow">Sistema de Horarios — Telesales</span>
   <h1>Schedules</h1>
   <div class="header-meta">
-    <span class="week-badge">Semana: <span>Week 19</span></span>
-    <span class="week-badge">9 de Mayo del 4 al 9 de Mayo</span>
+    <span class="week-badge">Semana: <span>—</span></span>
+    <span class="week-badge"></span>
   </div>
 </header>
 <div class="topbar">
@@ -85,9 +90,9 @@ td{padding:.4rem;text-align:center;font-size:.75rem;border:1px solid rgba(255,25
 <script>
 const HORAS=["9:00","10:00","11:00","11:15","11:30","11:45","12:00","13:00","14:00","15:00","16:00","16:15","16:30","17:00","17:45","18:00","19:00"];
 const LABELS=["── Lunch 13:00 ──","── Lunch 14:00 ──","── Lunch 15:00 ──"];
-const COLORS={Flexo:'#9333EA',Concentra:'#2563EB',Puebla:'#16A34A'};
-const LIGHTS={Flexo:'#EDE9FE',Concentra:'#DBEAFE',Puebla:'#DCFCE7'};
-const SCHEDULE={"Flexo": {"week": "Week 19", "fecha": "9 de Mayo del 4 al 9 de Mayo", "people": [{"name": "Gerardo Almanza", "group": 0, "b1": "11:15", "lu": "13:00", "b2": "16:30"}, {"name": "Jaqui Mendoza", "group": 0, "b1": "11:15", "lu": "13:00", "b2": "16:30"}, {"name": "Alexa Hernandez", "group": 1, "b1": "11:30", "lu": "14:00", "b2": "17:00"}, {"name": "Erick Duran", "group": 1, "b1": "11:30", "lu": "14:00", "b2": "17:00"}, {"name": "Ana Pale", "group": 2, "b1": "11:45", "lu": "15:00", "b2": "17:45"}, {"name": "Axel Palomarez", "group": 2, "b1": "11:45", "lu": "15:00", "b2": "17:45"}, {"name": "Ana Morales", "group": 2, "b1": "11:45", "lu": "15:00", "b2": "17:45"}], "cobertura": []}, "Concentra": {"week": "Week 19", "fecha": "9 de Mayo del 4 al 9 de Mayo", "people": [{"name": "Hugo Iker", "group": 0, "b1": "11:15", "lu": "13:00", "b2": "16:30"}, {"name": "Jose Quirino", "group": 0, "b1": "11:15", "lu": "13:00", "b2": "16:30"}, {"name": "Fernando Evaristo", "group": 0, "b1": "11:15", "lu": "13:00", "b2": "16:30"}, {"name": "José Ojeda", "group": 0, "b1": "11:15", "lu": "13:00", "b2": "16:30"}, {"name": "Manuel Ramirez", "group": 1, "b1": "11:30", "lu": "14:00", "b2": "17:00"}, {"name": "Adan Valencia", "group": 1, "b1": "11:30", "lu": "14:00", "b2": "17:00"}, {"name": "Ana Ibarra", "group": 1, "b1": "11:30", "lu": "14:00", "b2": "17:00"}, {"name": "Gustavo Huesca", "group": 1, "b1": "11:30", "lu": "14:00", "b2": "17:00"}, {"name": "Luis Perez", "group": 1, "b1": "11:30", "lu": "14:00", "b2": "17:00"}, {"name": "Gabriela Arguello", "group": 1, "b1": "11:30", "lu": "14:00", "b2": "17:00"}, {"name": "Brayan Castillo", "group": 1, "b1": "11:30", "lu": "14:00", "b2": "17:00"}, {"name": "Marina Tomas", "group": 2, "b1": "11:45", "lu": "15:00", "b2": "17:45"}, {"name": "Zuleima Salazar", "group": 2, "b1": "11:45", "lu": "15:00", "b2": "17:45"}, {"name": "Bernardo Cruz", "group": 2, "b1": "11:45", "lu": "15:00", "b2": "17:45"}, {"name": "Arturo Barcenas", "group": 2, "b1": "11:45", "lu": "15:00", "b2": "17:45"}, {"name": "Carlos Monroy", "group": 2, "b1": "11:45", "lu": "15:00", "b2": "17:45"}, {"name": "Mariel Salazar", "group": 2, "b1": "11:45", "lu": "15:00", "b2": "17:45"}, {"name": "Brenda Paniagua", "group": 2, "b1": "11:45", "lu": "15:00", "b2": "17:45"}], "cobertura": []}, "Puebla": {"week": "Week 19", "fecha": "9 de Mayo del 4 al 9 de Mayo", "people": [{"name": "Claudia Rodriguez", "group": 0, "b1": "11:15", "lu": "13:00", "b2": "16:30"}, {"name": "Claudia Mejia", "group": 0, "b1": "11:15", "lu": "13:00", "b2": "16:30"}, {"name": "Luz Gonzalez", "group": 1, "b1": "11:30", "lu": "14:00", "b2": "17:00"}, {"name": "Alejandra Galindo", "group": 1, "b1": "11:30", "lu": "14:00", "b2": "17:00"}, {"name": "Mafer Martinez", "group": 1, "b1": "11:30", "lu": "14:00", "b2": "17:00"}, {"name": "Julio Aparicio", "group": 2, "b1": "11:45", "lu": "15:00", "b2": "17:45"}, {"name": "Jaime Hernandez", "group": 2, "b1": "11:45", "lu": "15:00", "b2": "17:45"}, {"name": "David Roldan", "group": 2, "b1": "11:45", "lu": "15:00", "b2": "17:45"}], "cobertura": []}};
+const COLORS={Flexo:'#2563EB',Concentra:'#9333EA',Puebla:'#16A34A'};
+const LIGHTS={Flexo:'#DBEAFE',Concentra:'#EDE9FE',Puebla:'#DCFCE7'};
+const SCHEDULE={"Flexo": {"week": "—", "fecha": "", "people": [], "cobertura": []}, "Concentra": {"week": "—", "fecha": "", "people": [], "cobertura": []}, "Puebla": {"week": "—", "fecha": "", "people": [], "cobertura": []}};
 document.querySelectorAll('.tab').forEach(tab=>{
   tab.addEventListener('click',()=>{
     document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
@@ -103,7 +108,8 @@ function renderSite(site){
   HORAS.forEach(h=>{html+=`<th>${h}</th>`;});
   html+=`</tr></thead><tbody>`;
   let lastGroup=-1;
-  people.forEach(({name,group,b1,lu,b2})=>{
+  people.forEach(p=>{
+    const {name,group,b1,lu,b2}=p;
     if(group!==lastGroup){lastGroup=group;html+=`<tr class="group-header"><td colspan="${HORAS.length+1}">${LABELS[group]}</td></tr>`;}
     html+=`<tr class="row-g${group}"><td class="td-name">${name}</td>`;
     HORAS.forEach(h=>{
