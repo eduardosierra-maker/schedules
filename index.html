@@ -203,7 +203,7 @@ function renderSite(site){
     const names=cobertura.join(', ');
     html+=`<div class="cob-bar"><span class="cob-label">Cobertura Sábado</span>`;
     cobertura.forEach(n=>{html+=`<span class="cob-tag" style="border:1px solid ${COLORS[site]};color:${COLORS[site]};background:${LIGHTS[site]}">${n}</span>`;});
-    html+=`<button class="copy-btn" onclick="copyNames('${names}',this)">📋 Copiar</button></div>`;
+    html+=`</div>`;
   }
   html+=`<div class="stats">`;
   ['13:00','14:00','15:00'].forEach((h,i)=>{
