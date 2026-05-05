@@ -1,6 +1,0 @@
-cd /Users/nicolassierra/PycharmProjects/Telesales_Schedules
-mkdir avatars
-cp "/ruta/de/tus/imagenes/*.png" avatars/
-git add avatars/
-git commit -m "Add avatars"
-git push
